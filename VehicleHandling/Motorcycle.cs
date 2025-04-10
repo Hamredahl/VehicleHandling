@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace VehicleHandling
 {
+    //TODO: Move to new solution folder vehicles or something
     class Motorcycle : Vehicle
     {
         private bool hasSidecar;

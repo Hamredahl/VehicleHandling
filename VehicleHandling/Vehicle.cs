@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace VehicleHandling
 {   
     //Abstrakt vehicle-klass enligt Del 3
+    //TODO: Move to new solution folder vehicles or something
     abstract class Vehicle
     {
         private string brand;
