@@ -5,14 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace VehicleHandling
-{
-    class Vehicle
+{   
+    //Abstrakt vehicle-klass enligt Del 3
+    abstract class Vehicle
     {
         private string brand;
         private string model;
         private int year;
         private double weight;
 
+        //Get-Set metoder för properties
         public string Brand 
         { 
             get 
@@ -22,7 +24,7 @@ namespace VehicleHandling
             set 
             { 
                 if (value.Length < 2 || value.Length > 20) 
-                    throw new ArgumentException("Must be between 2 and 20 characters long."); 
+                    throw new ArgumentException("Brand must be between 2 and 20 characters long."); 
                 else 
                     brand = value; 
             } 
@@ -36,7 +38,7 @@ namespace VehicleHandling
             set 
             { 
                 if (value.Length < 2 || value.Length > 20) 
-                    throw new ArgumentException("Must be between 2 and 20 characters long.");
+                    throw new ArgumentException("Model must be between 2 and 20 characters long.");
                 else 
                     model = value; 
             } 
@@ -49,8 +51,8 @@ namespace VehicleHandling
             } 
             set 
             { 
-                if (value < 1886 && value > DateTime.Today.Year) 
-                    throw new ArgumentException("Cannot be older than 1886 or newer than current year."); 
+                if (value < 1886 || value > DateTime.Today.Year) 
+                    throw new ArgumentException("Year cannot be older than 1886 or newer than current year."); 
                 else 
                     year = value; 
             } 
@@ -64,10 +66,24 @@ namespace VehicleHandling
             set 
             { 
                 if (value < 0.0) 
-                    throw new ArgumentException("Must be a positive value"); 
+                    throw new ArgumentException("Weight must be a positive value"); 
                 else 
                     weight = value; 
             } 
+        }
+        //Slut på Get-Set metoder för properties
+
+        //Virtual metod StartEngine, som fallback om nytt fordon inte implementerar en StartEngine metod.
+        //Kan i dagsläget vara en abstract egentligen då alla fordon implementerar den, osäker på vad best practice är.
+        public virtual void StartEngine()
+        { 
+            Console.WriteLine("The vehicle's engine is on."); 
+        }
+        //Virtual metod Stats som används av ListVehicles() i VehicleHandler, som fallback om nytt fordon inte implementerar en StartEngine metod.
+        //Kan i dagsläget vara en abstract egentligen då alla fordon implementerar den, osäker på vad best practice är.
+        public virtual void Stats()
+        {
+            Console.WriteLine($"{this.Brand} {this.Model}, {this.Year}, {this.Weight}kg");
         }
     }
 }
