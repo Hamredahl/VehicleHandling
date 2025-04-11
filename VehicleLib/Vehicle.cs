@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VehicleHandling
+namespace VehicleHandling.VehicleLib
 {   
     //Abstrakt vehicle-klass enligt Del 3
-    //TODO: Move to new solution folder vehicles or something
-    abstract class Vehicle
+    public abstract class Vehicle
     {
         private string brand;
         private string model;

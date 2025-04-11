@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VehicleHandling
+namespace VehicleHandling.VehicleLib
 {
-    //TODO: Move to new solution folder vehicles or something
-    class Car : Vehicle, ICleanable
+    public class Car : Vehicle, ICleanable
     {
         private int seats;
 

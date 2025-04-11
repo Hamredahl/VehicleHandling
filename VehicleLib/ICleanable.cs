@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VehicleHandling
+namespace VehicleHandling.VehicleLib
 {
-    interface ICleanable
+    public interface ICleanable
     {
         void Clean();
     }
